@@ -31,8 +31,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "concurrently -k \"BROWSER=none yarn start\" \"yarn:electron\"",
-    "electron": "wait-on tcp:3000 && electron .",
+    "dev": "yarn set BROWSER=none yarn start && yarn electron",
+    "electron": "electron .",
     "package": "react-scripts build && electron-forge package",
     "make-mac": "react-scripts build && electron-forge make --platform darwin",
     "make-linux": "react-scripts build && electron-forge make --platform linux",
@@ -57,9 +57,7 @@
     ]
   },
   "devDependencies": {
-    "@electron-forge/maker-dmg": "^6.0.5",
-    "concurrently": "^7.6.0",
-    "wait-on": "^7.0.1"
+    "@electron-forge/maker-dmg": "^6.0.5"
   },
   "config": {
     "forge": {
@@ -68,7 +66,7 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "stock_trading_app"
+            "name": "cleaning-plan-react-electron"
           }
         },
         {
